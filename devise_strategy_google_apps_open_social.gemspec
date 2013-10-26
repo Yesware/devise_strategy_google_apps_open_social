@@ -1,11 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'devise_strategy_google_apps_open_social/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "devise_strategy_google_apps_open_social"
-  spec.version       = GoogleAppsOpenSocial::VERSION
+  spec.version       = '0.0.1'
   spec.authors       = ["Benjamin Coe"]
   spec.email         = ["bencoe@gmail.com"]
   spec.description   = %q{Adds support to devise for authenticating an OpenSocial signed request.}
