@@ -6,4 +6,4 @@ end
 
 SimpleCov.minimum_coverage 95
 
-require_relative '../lib/google_apps_open_social'
+require_relative '../lib/devise/strategies/google_apps_open_social'

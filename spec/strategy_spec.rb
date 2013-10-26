@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe GoogleAppsOpenSocial::Strategy do
+describe Devise::Strategies::GoogleAppsOpenSocial do
   describe "valid?" do
     it "should be valid" do
       'vallid'.should == 'banana'
