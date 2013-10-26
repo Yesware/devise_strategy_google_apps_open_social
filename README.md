@@ -9,6 +9,7 @@ Usage
 In your devise initializer add:
 
 ```ruby
+require 'devise/strategies/google_apps_open_social'
 config.warden do |manager|
 	manager.default_strategies(scope: :user).unshift :google_apps_open_social
 end
