@@ -6,7 +6,7 @@ module Devise
     class GoogleAppsOpenSocial < Devise::Strategies::Authenticatable
 
       def valid?
-        params[:banana].present?
+        params[:opensocial].present?
       end
 
       def authenticate!
