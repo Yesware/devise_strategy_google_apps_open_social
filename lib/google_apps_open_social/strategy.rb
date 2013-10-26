@@ -1,11 +1,12 @@
+require 'warden'
 require 'devise/strategies/authenticatable'
 
 module GoogleAppsOpenSocial
 
-  class Strategy < Authenticatable
+  class Strategy < Devise::Strategies::Authenticatable
 
     def valid?
-      params[:awesome].present?
+      params[:banana].present?
     end
 
     def authenticate!
@@ -18,4 +19,4 @@ module GoogleAppsOpenSocial
 
 end
 
-Warden::Strategies.add(:google_apps_opensocial, GoogleAppsOpenSocial::Strategy)
+Warden::Strategies.add(:google_apps_open_social, GoogleAppsOpenSocial::Strategy)

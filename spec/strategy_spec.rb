@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Strategy do
+describe GoogleAppsOpenSocial::Strategy do
   describe "valid?" do
     it "should be valid" do
       'vallid'.should == 'banana'

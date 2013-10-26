@@ -3,6 +3,16 @@ Google Apps OpenSocial Strategy
 
 Adds support to devise for authenticating an OpenSocial signed request.
 
+Usage
+-----
+
+In your devise initializer add:
+
+```ruby
+config.warden do |manager|
+	manager.default_strategies(scope: :user).unshift :google_apps_open_social
+end
+```
 
 Contributing
 ------------
