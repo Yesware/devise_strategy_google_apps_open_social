@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'google_apps_open_social/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "devise_strategy_google_apps_opensocial"
+  spec.name          = "devise_strategy_google_apps_open_social"
   spec.version       = GoogleAppsOpenSocial::VERSION
   spec.authors       = ["Benjamin Coe"]
   spec.email         = ["bencoe@gmail.com"]
