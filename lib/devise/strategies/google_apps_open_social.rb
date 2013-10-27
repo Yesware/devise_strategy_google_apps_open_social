@@ -1,5 +1,5 @@
-require 'warden'
-require 'devise/strategies/authenticatable'
+require "warden"
+require "devise"
 
 module Devise
   module Strategies
@@ -16,9 +16,24 @@ module Devise
       end
 
       def authenticate!
+        consumer = OAuth::Consumer.new(CONSUMER_KEY, CONSUMER_SECRET)
+
+        begin
+          signature = OAuth::Signature.build(request) do
+            [nil, consumer.secret]
+          end
+
+          return fail(:signature_was_invalid) unless signature.verify
+
+        rescue OAuth::Signature::UnknownSignatureMethod => e
+          return fail(:unknown_signature_method_specified)
+        end
+
+=begin
         user = mapping.to.find_by_email(params[:email])
         return fail(:not_found_in_database) unless user
         success! user
+=end
       end
 
     end
