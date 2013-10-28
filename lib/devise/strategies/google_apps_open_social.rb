@@ -1,18 +1,36 @@
-require 'warden'
-require 'devise/strategies/authenticatable'
+require "warden"
+require "devise"
+require "devise/strategies/google_apps_certificate"
 
 module Devise
   module Strategies
     class GoogleAppsOpenSocial < Devise::Strategies::Authenticatable
 
+      include GoogleAppsCertificate
+
       def valid?
-        params[:opensocial].present?
+        params[:xoauth_public_key] == CERTIFICATE_NAME
       end
 
       def authenticate!
-        user = mapping.to.find_by_email(params[:email])
-        return fail(:not_found_in_database) unless user
-        success! user
+        consumer = OAuth::Consumer.new(CONSUMER_KEY, CONSUMER_SECRET)
+
+        begin
+          signature = OAuth::Signature.build(request) do
+            [nil, consumer.secret]
+          end
+
+          return fail(:invalid_signature) unless signature.verify
+
+        rescue OAuth::Signature::UnknownSignatureMethod => e
+          return fail(:unknown_signature_method)
+        end
+
+        resource = mapping.to.find_by_opensocial_viewer_id(params[:opensocial_viewer_id])
+        
+        return fail(:resource_not_found) unless resource
+
+        success!(resource)
       end
 
     end
