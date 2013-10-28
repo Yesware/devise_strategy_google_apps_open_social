@@ -28,7 +28,7 @@ describe Devise::Strategies::GoogleAppsOpenSocial do
 
       strategy = Devise::Strategies::GoogleAppsOpenSocial.new({})
 
-      strategy.valid?.should be true
+      strategy.valid?.should == true
     end
 
     it "should return false if xoauth_public_key is not set" do
@@ -38,7 +38,7 @@ describe Devise::Strategies::GoogleAppsOpenSocial do
 
       strategy = Devise::Strategies::GoogleAppsOpenSocial.new({})
 
-      strategy.valid?.should be false
+      strategy.valid?.should == false
     end
 
     it "should return false if xoauth_public_key is not Google's" do
@@ -51,7 +51,7 @@ describe Devise::Strategies::GoogleAppsOpenSocial do
 
       strategy = Devise::Strategies::GoogleAppsOpenSocial.new({})
 
-      strategy.valid?.should be false
+      strategy.valid?.should == false
     end
 
   end
@@ -81,7 +81,7 @@ describe Devise::Strategies::GoogleAppsOpenSocial do
         .and_return(request)
 
       strategy = Devise::Strategies::GoogleAppsOpenSocial.new({})
-      strategy.authenticate!.should be :success
+      strategy.authenticate!.should == :success
     end
 
     it "should return :failure if opensocial_viewer_id is not found" do
@@ -101,7 +101,7 @@ describe Devise::Strategies::GoogleAppsOpenSocial do
 
         strategy = Devise::Strategies::GoogleAppsOpenSocial.new({})
 
-        strategy.authenticate!.should be :failure
+        strategy.authenticate!.should == :failure
     end
 
     it "should return :failure if signature is not valid" do
@@ -119,7 +119,7 @@ describe Devise::Strategies::GoogleAppsOpenSocial do
 
       strategy = Devise::Strategies::GoogleAppsOpenSocial.new({})
 
-      strategy.authenticate!.should be :failure
+      strategy.authenticate!.should == :failure
     end
 
     it "should return :failure if signature method is not known" do
@@ -137,7 +137,7 @@ describe Devise::Strategies::GoogleAppsOpenSocial do
 
       strategy = Devise::Strategies::GoogleAppsOpenSocial.new({})
 
-      strategy.authenticate!.should be :failure
+      strategy.authenticate!.should == :failure
     end
 
   end
