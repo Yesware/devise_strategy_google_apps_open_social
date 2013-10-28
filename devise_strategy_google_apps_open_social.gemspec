@@ -5,8 +5,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = "devise_strategy_google_apps_open_social"
   spec.version       = '1.0.0'
-  spec.authors       = ["apps@yesware.com"]
-  spec.email         = ["info@yesware.com"]
+  spec.author       = ["Yesware, Inc"]
+  spec.email         = ["engineering@yesware.com'"]
   spec.description   = %q{Adds support to devise for authenticating an OpenSocial signed request.}
   spec.summary       = %q{Adds support to devise for authenticating an OpenSocial signed request.}
   spec.homepage      = ""
