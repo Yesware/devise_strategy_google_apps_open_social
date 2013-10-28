@@ -45,7 +45,7 @@ describe Devise::Strategies::GoogleAppsOpenSocial do
       Devise::Strategies::GoogleAppsOpenSocial.any_instance
         .stub(:params)
         .and_return( {
-          # Google's opensocial certifistub_request(:post, "www.example.com").with(:body => "abc", :headers => { 'Content-Length' => 3 })cate name.
+          # Google's opensocial certificate.
           :xoauth_public_key => 'pub.9999999.2713152949996518384.cer'
         } )
 
