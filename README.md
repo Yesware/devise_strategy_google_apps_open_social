@@ -1,7 +1,7 @@
 Google Apps OpenSocial Strategy
 ======
 
-Build Status: [![Build Status](https://travis-ci.org/yesware/devise_strategy_google_apps_open_social.png)](https://travis-ci.org/yesware/devise_strategy_google_apps_open_social)
+Build Status: [![Build Status](https://travis-ci.org/Yesware/devise_strategy_google_apps_open_social.png)](https://travis-ci.org/Yesware/devise_strategy_google_apps_open_social)
 
 Adds support to devise for authenticating an OpenSocial signed request.
 
