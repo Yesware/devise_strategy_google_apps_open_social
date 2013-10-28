@@ -3,4 +3,6 @@ rvm:
   - 1.9.3
 before_install:
   - gem install bundler --pre
+gemfile:
+  - gemfiles/Gemfile.rails-3.1.x
 script: bundle exec rake spec
