@@ -1,6 +1,6 @@
-require 'uri'
 require 'oauth'
 require 'simplecov'
+require 'active_hash'
 require 'action_dispatch'
 require 'oauth/request_proxy/rack_request'
 

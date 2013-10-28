@@ -23,17 +23,17 @@ module Devise
             [nil, consumer.secret]
           end
 
-          return fail(:signature_was_invalid) unless signature.verify
+          return fail(:invalid_signature) unless signature.verify
 
         rescue OAuth::Signature::UnknownSignatureMethod => e
-          return fail(:unknown_signature_method_specified)
+          return fail(:unknown_signature_method)
         end
 
-=begin
-        user = mapping.to.find_by_email(params[:email])
-        return fail(:not_found_in_database) unless user
-        success! user
-=end
+        resource = mapping.to.find_by_opensocial_viewer_id(params[:opensocial_viewer_id])
+        
+        return fail(:resource_not_found) unless resource
+
+        success!(resource)
       end
 
     end
