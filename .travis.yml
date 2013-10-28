@@ -1,6 +1,6 @@
 language: ruby
 rvm:
   - 1.9.3
-gemfile:
-  - gemfiles/Gemfile.rails-3.1.x
-script: rspec spec/*
+before_install:
+  - gem install bundler --pre
+script: bundle exec rake spec
